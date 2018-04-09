@@ -1,6 +1,7 @@
 import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { DataPage } from '../data/data';
 
 @Component({
   selector: 'page-home',
@@ -32,7 +33,7 @@ export class HomePage {
     if (this.loggedIn = true) {
       this.navCtrl.push(LoginPage);
     } else {
-      this.navCtrl.push(DataPage);
+      this.navCtrl.push(DataPage, {LoggedIn: this.loggedIn});
     }
   }
 
