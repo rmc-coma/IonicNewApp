@@ -30,7 +30,6 @@ export class LoginPage {
   {
     console.log('Form validated');
     this.navCtrl.push(ValidationPage, {email: this.loginForm.value["emailInput"], password: this.loginForm.value["passwordInput"]})
-//  this.navCtrl.pop();
   }
 }
 

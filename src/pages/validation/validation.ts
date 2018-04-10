@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 
 /**
  * Generated class for the ValidationPage page.
@@ -15,13 +15,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ValidationPage {
 
-  public email: string;
-  public password: string;
+  public  email: string;
+  public  password: string;
+  private events: Events;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams)
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ev: Events)
   {
     this.email = this.navParams.get('email');
     this.password = this.navParams.get('password');
+    this.events = this.ev;
   }
 
   ionViewDidLoad()
@@ -31,7 +33,8 @@ export class ValidationPage {
 
   goForward()
   {
-    this.navCtrl.popToRoot();
+    this.events.publish('user:login');
+    //this.navCtrl.popToRoot();
   }
 
   goBackward()
